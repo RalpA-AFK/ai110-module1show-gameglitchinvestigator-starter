@@ -25,14 +25,16 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [A guessing game to find a number within a certain number of attempts] Describe the game's purpose.
+- [secret number changing constantly, difficulty inconsistent, guesses that are invalid still counting and not stated to be invalid ] Detail which bugs you found.
+- [Fixed all of the above bugs] Explain what fixes you applied.
 
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+![alt text](image.png)
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- [N/A] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+
