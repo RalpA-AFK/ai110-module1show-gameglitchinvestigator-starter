@@ -35,8 +35,7 @@ low, high = get_range_for_difficulty(difficulty)
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 
-# Ensure the secret only changes when a new game starts or difficulty changes.
-# If we re-generate it on every rerun, the player can never win.
+# Fix: Added game_id to session state to make text input keys unique per game, preventing StreamlitAPIException from modifying widget session state after instantiation.
 if st.session_state.get("difficulty") != difficulty:
     st.session_state.difficulty = difficulty
     st.session_state.secret = random.randint(low, high)
@@ -76,6 +75,7 @@ with st.expander("Developer Debug Info"):
     st.write("Difficulty:", difficulty)
     st.write("History:", st.session_state.history)
 
+# Fix: Use unique key per game to prevent session state modification errors.
 raw_guess = st.text_input(
     "Enter your guess:",
     key=f"guess_input_{difficulty}_{st.session_state.game_id}"
@@ -91,6 +91,7 @@ with col3:
 
 
 def reset_game() -> None:
+    # Fix: Increment game_id instead of modifying widget session state to avoid StreamlitAPIException.
     st.session_state.secret = random.randint(low, high)
     st.session_state.attempts = 0
     st.session_state.score = 0
