@@ -14,3 +14,11 @@ def test_guess_too_low():
     # If secret is 50 and guess is 40, hint should be "Too Low"
     result = check_guess(40, 50)
     assert result == "Too Low"
+
+
+def test_invalid_types_raises():
+    # Ensure invalid guess/secret types don't accidentally return "Too Low"/"Too High".
+    import pytest
+
+    with pytest.raises(TypeError):
+        check_guess("not a number", 50)
